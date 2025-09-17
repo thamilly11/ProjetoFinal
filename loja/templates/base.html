@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Tecmt - Soluções em Informática{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <div>
+                    <h1>Tecmt</h1>
+                    <p>Soluções em Informática</p>
+                </div>
+            </div>
+            <nav>
+                <a href="{% url 'index' %}">Início</a>
+                <a href="{% url 'produtos' %}">Produtos</a>
+                <a href="{% url 'servicos' %}">Serviços</a>
+
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conteúdo -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div>
+                <h3>TechPro</h3>
+                <p>Sua parceira em soluções tecnológicas, oferecendo serviços de qualidade e produtos confiáveis.</p>
+            </div>
+            <div>
+                <h3>Nossos Serviços</h3>
+                <ul>
+                    <li>Manutenção de Computadores</li>
+                    <li>Design e Mídia Digital</li>
+                    <li>Venda de Produtos</li>
+                    <li>Suporte Técnico</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Contato Rápido</h3>
+                <p><a href="https://wa.me/5511999999999">WhatsApp</a></p>
+                <p><a href="mailto:contato@techpro.com">E-mail</a></p>
+                <p><a href="https://maps.google.com">Nossa Localização</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2024 TechPro. Todos os direitos reservados.
+        </div>
+    </footer>
+</body>
+
+</html>

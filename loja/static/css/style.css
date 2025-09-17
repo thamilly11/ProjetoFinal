@@ -1,0 +1,126 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: #0f172a;
+}
+
+/* Header */
+header {
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.header-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(to right, #2563eb, #1d4ed8);
+  border-radius: 8px;
+}
+nav a {
+  margin-left: 16px;
+  text-decoration: none;
+  color: #475569;
+}
+nav a:hover {
+  color: #2563eb;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(to right, #2563eb, #1d4ed8, #1e3a8a);
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+.hero span {
+  display: block;
+  color: #67e8f9;
+}
+.hero-buttons {
+  margin-top: 20px;
+}
+.btn-primary,
+.btn-secondary,
+.btn-tertiary {
+  border: 2px solid white;
+  padding: 12px 24px;
+  border-radius: 12px;
+  margin-left: 10px;
+  text-decoration: none;
+  color: white;
+}
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-tertiary:hover{
+  background: white;
+  color: #1d4ed8;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: bold;
+  text-decoration: none;
+}
+/* Sections */
+.section {
+  padding: 60px 20px;
+  text-align: center;
+}
+.section.alt {
+  background: #f8fafc;
+}
+.grid {
+  display: grid;
+  gap: 20px;
+  margin-top: 30px;
+}
+.grid {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.card {
+  border: 1px solid #e2e8f0;
+  padding: 20px;
+  border-radius: 12px;
+  background: white;
+}
+
+/* Footer */
+footer {
+  background: #0f172a;
+  color: white;
+  margin-top: 40px;
+}
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.footer-container h3 {
+  margin-bottom: 12px;
+}
+.footer-container p, footer a, li {
+  font-size: 14px;
+  color: #94a3b8;
+}
+.footer-container a:hover {
+  color: white;
+}
+.footer-bottom {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #1e293b;
+  color: #94a3b8;
+  font-size: 13px;
+}
