@@ -4,6 +4,16 @@
 
 {% block content %}
 
+{% if messages %}
+    <div class="mb-4">
+        {% for message in messages %}
+            <div class="text-center text-sm {% if message.tags == 'error' %}text-red-600{% else %}text-green-600{% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
 <!-- Hero Section -->
 <section class="hero">
     <div class="hero-content">

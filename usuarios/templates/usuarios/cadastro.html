@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}Cadastro{% endblock %}
+
+{% block content %}
+<div class="min-h-screen flex items-center justify-center bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-2xl w-full space-y-8 bg-white p-8 rounded-2xl shadow-lg">
+    <div class="text-center">
+      <h1 class="text-3xl font-bold text-gray-900 mb-2">Crie sua conta</h1>
+      <p class="text-gray-600">Preencha os dados abaixo para se cadastrar</p>
+    </div>
+
+    {% if messages %}
+      <div class="space-y-2">
+        {% for message in messages %}
+          <div class="p-3 rounded-lg text-white 
+            {% if message.tags == 'success' %}bg-green-500{% elif message.tags == 'error' %}bg-red-500{% else %}bg-gray-500{% endif %}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <form class="space-y-6" method="post">
+      {% csrf_token %}
+      {% if form.non_field_errors %}
+        <div class="mb-4 p-3 rounded-lg bg-red-500 text-white text-center">
+          {% for error in form.non_field_errors %}
+            <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <div>
+        <h2 class="text-lg font-semibold text-gray-800 mb-2 border-b pb-1">Dados de Acesso</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700">{{ form.username.label }}</label>
+            {{ form.username|add_class:"w-full p-2 border rounded-lg focus:ring-2 focus:ring-primary-red focus:outline-none" }}
+            {% for error in form.username.errors %}
+              <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+            {% endfor %}
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">{{ form.email.label }}</label>
+            {{ form.email|add_class:"w-full p-2 border rounded-lg focus:ring-2 focus:ring-primary-red focus:outline-none" }}
+            {% for error in form.email.errors %}
+              <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+            {% endfor %}
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">{{ form.password1.label }}</label>
+            {{ form.password1|add_class:"w-full p-2 border rounded-lg focus:ring-2 focus:ring-primary-red focus:outline-none" }}
+            {% for error in form.password1.errors %}
+              <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+            {% endfor %}
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">{{ form.password2.label }}</label>
+            {{ form.password2|add_class:"w-full p-2 border rounded-lg focus:ring-2 focus:ring-primary-red focus:outline-none" }}
+            {% for error in form.password2.errors %}
+              <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="text-lg font-semibold text-gray-800 mb-2 border-b pb-1">Dados Pessoais</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700">{{ form.first_name.label }}</label>
+            {{ form.first_name|add_class:"w-full p-2 border rounded-lg focus:ring-2 focus:ring-primary-red focus:outline-none" }}
+            {% for error in form.first_name.errors %}
+              <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+            {% endfor %}
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">{{ form.last_name.label }}</label>
+            {{ form.last_name|add_class:"w-full p-2 border rounded-lg focus:ring-2 focus:ring-primary-red focus:outline-none" }}
+            {% for error in form.last_name.errors %}
+              <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+            {% endfor %}
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">{{ form.cpf.label }}</label>
+            {{ form.cpf|add_class:"w-full p-2 border rounded-lg focus:ring-2 focus:ring-primary-red focus:outline-none" }}
+            {% for error in form.cpf.errors %}
+              <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+            {% endfor %}
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">{{ form.telefone.label }}</label>
+            {{ form.telefone|add_class:"w-full p-2 border rounded-lg focus:ring-2 focus:ring-primary-red focus:outline-none" }}
+            {% for error in form.telefone.errors %}
+              <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="text-lg font-semibold text-gray-800 mb-2 border-b pb-1">Endereço</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700">{{ form.rua.label }}</label>
+            {{ form.rua|add_class:"w-full p-2 border rounded-lg focus:ring-2 focus:ring-primary-red focus:outline-none" }}
+            {% for error in form.rua.errors %}
+              <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+            {% endfor %}
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">{{ form.numero.label }}</label>
+            {{ form.numero|add_class:"w-full p-2 border rounded-lg focus:ring-2 focus:ring-primary-red focus:outline-none" }}
+            {% for error in form.numero.errors %}
+              <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+            {% endfor %}
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">{{ form.cidade.label }}</label>
+            {{ form.cidade|add_class:"w-full p-2 border rounded-lg focus:ring-2 focus:ring-primary-red focus:outline-none" }}
+            {% for error in form.cidade.errors %}
+              <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+            {% endfor %}
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">{{ form.estado.label }}</label>
+            {{ form.estado|add_class:"w-full p-2 border rounded-lg focus:ring-2 focus:ring-primary-red focus:outline-none" }}
+            {% for error in form.estado.errors %}
+              <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+            {% endfor %}
+          </div>
+          <div class="sm:col-span-2">
+            <label class="block text-sm font-medium text-gray-700">{{ form.cep.label }}</label>
+            {{ form.cep|add_class:"w-full p-2 border rounded-lg focus:ring-2 focus:ring-primary-red focus:outline-none" }}
+            {% for error in form.cep.errors %}
+              <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-4">
+        <button type="submit" class="w-full bg-red-500 text-white py-2 rounded-xl font-semibold hover:bg-red-600 transition-all duration-200">
+          Cadastrar
+        </button>
+      </div>
+
+      <p class="text-center text-sm text-gray-600">
+        Já tem uma conta?
+        <a href="{% url 'login' %}" class="text-primary-red hover:underline">Entre aqui</a>
+      </p>
+    </form>
+  </div>
+</div>
+{% endblock %}
